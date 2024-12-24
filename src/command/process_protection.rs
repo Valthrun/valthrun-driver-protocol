@@ -1,3 +1,4 @@
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub enum ProcessProtectionMode {
     None,
@@ -11,6 +12,7 @@ impl Default for ProcessProtectionMode {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Default, Clone, Copy)]
 pub struct DriverCommandProcessProtection {
     pub mode: ProcessProtectionMode,

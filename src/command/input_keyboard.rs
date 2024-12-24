@@ -1,5 +1,6 @@
 use core::ptr;
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct DriverCommandInputKeyboard {
     pub buffer: *const KeyboardState,
@@ -15,6 +16,7 @@ impl Default for DriverCommandInputKeyboard {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Default, Clone, Copy)]
 pub struct KeyboardState {
     pub scane_code: u16,

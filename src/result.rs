@@ -1,6 +1,7 @@
 use bitflags::bitflags;
 
 bitflags! {
+    #[repr(C)]
     #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
     pub struct CommandResult : u64 {
         const Error = 0x00;

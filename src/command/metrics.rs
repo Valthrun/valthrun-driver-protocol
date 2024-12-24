@@ -2,6 +2,7 @@ use core::ptr;
 
 use crate::utils;
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct DriverCommandMetricsReportSend {
     pub report_type: [u8; 0x100],

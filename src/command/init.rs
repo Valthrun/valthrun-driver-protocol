@@ -3,6 +3,7 @@ use crate::{
     utils,
 };
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy, Default)]
 pub struct VersionInfo {
     pub application_name: [u8; 0x20],
@@ -21,9 +22,13 @@ impl VersionInfo {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy, Default)]
 pub struct DriverCommandInitialize {
     /* The order of the first few fields should be consistent accross versions. */
+    // Out:
+    pub driver_features: DriverFeature,
+
     // In:
     pub client_protocol_version: u32,
 
@@ -31,9 +36,6 @@ pub struct DriverCommandInitialize {
     pub driver_protocol_version: u32,
 
     /* These fields are only valid to access if the client and driver protocol version are equal */
-    // Out:
-    pub result: InitializeResult,
-
     // In:
     pub client_version: VersionInfo,
 
@@ -41,9 +43,10 @@ pub struct DriverCommandInitialize {
     pub driver_version: VersionInfo,
 
     // Out:
-    pub driver_features: DriverFeature,
+    pub result: InitializeResult,
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub enum InitializeResult {
     Success,

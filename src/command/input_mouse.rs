@@ -1,5 +1,6 @@
 use core::ptr;
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct DriverCommandInputMouse {
     pub buffer: *const MouseState,
@@ -15,6 +16,7 @@ impl Default for DriverCommandInputMouse {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Default, Clone, Copy)]
 pub struct MouseState {
     pub buttons: [Option<bool>; 0x05],

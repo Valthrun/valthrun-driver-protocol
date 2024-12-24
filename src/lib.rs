@@ -9,7 +9,7 @@ pub mod types;
 
 pub mod command;
 
-pub const PROTOCOL_VERSION: u32 = 0x03;
+pub const PROTOCOL_VERSION: u32 = 0x04;
 
 pub type FnCommandHandler = unsafe extern "C" fn(
     // the id of the command to handle

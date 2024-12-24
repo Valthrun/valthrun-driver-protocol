@@ -6,6 +6,7 @@ use crate::types::{
     ProcessId,
 };
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct DriverCommandMemoryRead {
     pub process_id: ProcessId,

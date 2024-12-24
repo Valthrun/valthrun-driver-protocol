@@ -7,6 +7,7 @@ use crate::types::{
     ProcessModuleInfo,
 };
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct DriverCommandProcessList {
     /// In:  
@@ -34,6 +35,7 @@ impl Default for DriverCommandProcessList {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct DriverCommandProcessModules {
     /// In:  

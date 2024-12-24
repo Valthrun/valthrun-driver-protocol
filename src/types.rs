@@ -5,6 +5,7 @@ use crate::utils;
 pub type ProcessId = u32;
 
 bitflags! {
+    #[repr(C)]
     #[derive(Debug, Default, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
     pub struct DriverFeature : u64 {
         const ProcessList               = 0x00_00_00_01;
@@ -24,6 +25,7 @@ bitflags! {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct ProcessInfo {
     pub process_id: ProcessId,
@@ -51,6 +53,7 @@ impl Default for ProcessInfo {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct ProcessModuleInfo {
     pub base_dll_name: [u8; 0x100],
@@ -78,6 +81,7 @@ impl Default for ProcessModuleInfo {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub enum MemoryAccessResult {
     Success,
@@ -95,6 +99,7 @@ impl Default for MemoryAccessResult {
     }
 }
 
+#[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub enum DirectoryTableType {
     /// Use the process directory table base specified by the system
